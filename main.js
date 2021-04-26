@@ -2,6 +2,12 @@
 // receive command line arguments
 var cliArgs = process.argv.slice(2);
 
+// check for zero inputs
+if(cliArgs.length == 0) {
+    console.log("Program expecting more inputs!");
+    return;
+}
+
 // initialize dictionary for numbers to their respective words
 var dict = {
     '1': "One",
@@ -33,6 +39,13 @@ for(let i = 0; i < cliArgs.length; i++) {
 
         // grab current digit 
         let currChar = arg[j];
+
+        // account for input containing non-digit character
+        if(!(currChar in dict)) {
+            console.log("Expected digits but got " + currChar + " at argument " + i);
+            console.log("Please try again with an input of digits!");
+            return;
+        }
 
         // append corresponding entry in the dictionary
         currentString += dict[currChar];
