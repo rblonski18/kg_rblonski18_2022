@@ -6,6 +6,7 @@ var cliArgs = process.argv.slice(2);
 if(cliArgs.length == 0) {
     console.log("Program expecting more inputs!");
     return;
+    
 }
 
 // initialize dictionary for numbers to their respective words
